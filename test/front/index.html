@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <h1>Lista de Clientes</h1>
+ 
+  <div id="filter-container">
+    <select id="filter-select" onchange="filterbygender(this.value)">
+      <option value="todos">Todos</option>
+      <option value="Male">Masculino</option>
+      <option value="Female">Femenino</option>
+      <option value="Genderqueer">Queer</option>
+      <option value="Bigender">Binario</option>
+      <option value="Polygender">Polygenero</option>
+      <option value="Agender">Agenero</option>
+      <option value= "Genderfluid">Genero fluido</option>
+      <option value="Non-binary">No binario</option>
+    </select>
+   </div>
+   <div id="pagination">
+    <button id="previous-page">anterior</button>
+    <span id="page-info">  </span>
+    <button id="next-page">siguiente</button>
+   </div>
+
+  <div id="search-container">
+    <input type="text" id="introducir-nombre" placeholder="Buscar por nombre">
+  </div>
+  <div id="search-container1">
+    <input type="text" id="introducir-apellido" placeholder="Buscar por apellido">
+  </div>
+  <div id="search-container2">
+    <input type="text" id="introducir-email" placeholder="Buscar por email"> 
+  </div>
+  
+  <div id="search-container3">
+    <input type="text" id="introducir-ip" placeholder="Buscar por ip">
+  </div>
+  <div id="search-container4">
+    <input type="text" id="introducir-pais" placeholder="Buscar por pais">  
+    </div>
+
+
+  
+  <div id="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable('id')">ID</th>
+          <th onclick="sortTable('nombre')">Nombre</th>
+          <th onclick="sortTable('apellido')">apellido</th>
+          <th onclick="sortTable('email')">email</th>
+          <th onclick="sortTable('genero')">genero</th>
+          <th onclick="sortTable('ip')">direccion IP</th>
+          <th onclick="sortTable('pais')">pais</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"> 
+
+         <td> 
+
+         </td>
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+    
+</body>
+</html>

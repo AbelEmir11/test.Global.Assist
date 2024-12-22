@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(202, 192, 192);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #181717;
+    margin-top: 20px;
+}
+
+#filter-container,  #pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+#search-container, #search-container1, #search-container2, #search-container3, #search-container4{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter-select, #search-input {
+    padding: 10px;
+    border: 1px solid #9e2d86;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9e2d86;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #7d236a;
+}
+
+#table-container {
+    max-width: 90%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #9e2d86;
+    color: white;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #7d236a;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #a863a5;
+}
+
+th button{
+    background: #a863a5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font:inherit;
+}
