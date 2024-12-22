@@ -6,7 +6,7 @@ let originalData = [];
 document.addEventListener("DOMContentLoaded", () => {
     fetch("http://localhost:3000/api/datos")
       .then((response) => {
-        if (!response.ok) throw new Error("Error al cargar el archivo");
+        if (!response.ok) throw new Error("Error al cargar los datos");
         return response.json();
       })
       .then((data) => {
@@ -65,28 +65,51 @@ function updatePaginationControls() {
 }
 
 document.getElementById("filter-select").addEventListener("change", (event) => {
-    filterByGender(event.target.value);
+    filterData();
 });
 
-function filterByGender(gender) {
-    const filteredData = gender === "todos" ? originalData : originalData.filter((client) => client.gender === gender);
-    currentData = filteredData;
+document.getElementById("introducir-nombre").addEventListener("input", (event) => {
+    filterData();
+});
+
+document.getElementById("introducir-apellido").addEventListener("input", (event) => {
+    filterData();
+});
+
+document.getElementById("introducir-email").addEventListener("input", (event) => {
+    filterData();
+});
+
+document.getElementById("introducir-ip").addEventListener("input", (event) => {
+    filterData();
+});
+
+document.getElementById("introducir-pais").addEventListener("input", (event) => {
+    filterData();
+});
+
+function filterData() {
+    const nameValue = document.getElementById("introducir-nombre").value.toLowerCase();
+    const lastNameValue = document.getElementById("introducir-apellido").value.toLowerCase();
+    const emailValue = document.getElementById("introducir-email").value.toLowerCase();
+    const ipValue = document.getElementById("introducir-ip").value.toLowerCase();
+    const countryValue = document.getElementById("introducir-pais").value.toLowerCase();
+    const genderValue = document.getElementById("filter-select").value;
+
+    currentData = originalData.filter((client) => {
+        return (
+            (nameValue === "" || client.first_name.toLowerCase().includes(nameValue)) &&
+            (lastNameValue === "" || client.last_name.toLowerCase().includes(lastNameValue)) &&
+            (emailValue === "" || client.email.toLowerCase().includes(emailValue)) &&
+            (ipValue === "" || client.ip_address.toLowerCase().includes(ipValue)) &&
+            (countryValue === "" || client.country.toLowerCase().includes(countryValue)) &&
+            (genderValue === "todos" || client.gender === genderValue)
+        );
+    });
+
     currentPage = 1;
     displayPage(currentPage);
 }
-
-document.getElementById("introducir-nombre").addEventListener("input", (event) => {
-    const searchValue = event.target.value.toLowerCase();
-    const filteredData = originalData.filter((client) => {
-        return client.first_name.toLowerCase().includes(searchValue) ||
-               client.last_name.toLowerCase().includes(searchValue) ||
-               client.email.toLowerCase().includes(searchValue);
-    });
-    currentData = filteredData;
-    currentPage = 1;
-    displayPage(currentPage);
-});
-
 
 function sortTable(column) {
     const tableBody = document.getElementById("table-body");

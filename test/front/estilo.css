@@ -17,17 +17,18 @@ h1 {
     justify-content: center;
     margin: 20px 0;
 }
-#search-container, #search-container1, #search-container2, #search-container3, #search-container4{
+#search-container {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+    flex-wrap: wrap;
 }
-
-#filter-select, #search-input {
-    padding: 10px;
+#search-container input #filter-select{
+    padding: 5px;
     border: 1px solid #9e2d86;
     border-radius: 5px;
-    margin-right: 10px;
+    margin: 5px;
+    width: 100px;
 }
 
 button {
